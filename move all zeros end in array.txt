@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] array = { 25, 35, 0, 0, 0, 15 };
+        int[] result = MoveZerosToEnd(array);
+
+        Console.WriteLine("Array after moving zeros to the end:");
+        foreach (int item in result)
+        {
+            Console.Write(item + " ");
+        }
+    }
+
+    static int[] MoveZerosToEnd(int[] input)
+    {
+        int[] output = new int[input.Length];
+        int index = 0;
+
+        // Add non-zero elements to the output array
+        foreach (int item in input)
+        {
+            if (item != 0)
+            {
+                output[index++] = item;
+            }
+        }
+
+        // Fill the remaining positions with zeros (optional as the array is initialized with zeros)
+        for (int i = index; i < output.Length; i++)
+        {
+            output[i] = 0;
+        }
+
+        return output;
+    }
+}
